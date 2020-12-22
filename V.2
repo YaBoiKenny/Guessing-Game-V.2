@@ -1,0 +1,34 @@
+secret_word = "Nice"
+guess = ""
+guess_limit = 10
+total_guesses = 0
+your_guesses = []
+out_of_guesses = False
+name = input("Enter you name: ")
+
+def intro(name):
+    print("Welcome to the guessing game " + name)
+    print("You will have " + str(guess_limit) + " guesses to guess the word correctly")
+
+intro(name)
+
+guess = input("Enter your guess: ")
+total_guesses += 1
+
+while guess != secret_word and total_guesses < guess_limit:
+    if guess != secret_word:
+        total_guesses += 1
+        your_guesses.append(guess)
+        print("Not quite! Guess again")
+        guess = input("Enter your guess: ")
+
+if guess == secret_word:
+    your_guesses.append(guess)
+    print("You guessed the word!")
+    print("It took you " + str(total_guesses) + " guesses to guess the correct word.")
+    print("Your guesses were: ")
+    print(your_guesses)
+else:
+    your_guesses.append(guess)
+    print("You ran out of guesses!You lose!")
+    print("Your incorrect guesses were \n " + str(your_guesses))
